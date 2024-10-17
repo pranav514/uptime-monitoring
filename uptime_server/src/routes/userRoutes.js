@@ -45,5 +45,18 @@ router.post('/login', async (req, res) => {
     }
 });
 
+router.post('/logout', async (req, res) => {
+    try {
+        // Assuming you’re using a cookie to store the JWT
+        res.clearCookie('token'); // Replace 'token' with the actual cookie name if different
+
+        // If token is passed via 'Authorization' header, let the client handle token removal
+        res.status(200).json({ message: "Logout successful" });
+    } catch (error) {
+        console.error("Logout Error:", error);
+        res.status(400).json({ message: "There was an error while logging out", error });
+    }
+});
+
 
 export default router;
