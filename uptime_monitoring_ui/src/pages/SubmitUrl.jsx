@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+const BASE_URL = import.meta.env.VITE_BASE_URL
 
 function SubmitUrl() {
   const [url, setUrl] = useState('');
@@ -10,7 +11,7 @@ function SubmitUrl() {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        'http://localhost:3000/api/user/submit', 
+        `${BASE_URL}}/api/user/submit`, 
         { url }, 
         { headers: { Authorization: `Bearer ${token}` } }
       );

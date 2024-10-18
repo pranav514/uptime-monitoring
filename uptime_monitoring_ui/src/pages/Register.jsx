@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate} from 'react-router-dom';
+const BASE_URL = import.meta.env.VITE_BASE_URL
 function Register() {
     const [name ,setName] = useState("");
     const [email , setEmail] = useState("");
@@ -9,7 +10,7 @@ function Register() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:3000/api/user/register',{name,email,password})
+        axios.post( `${BASE_URL}/api/user/register`,{name,email,password})
         .then((result) => {
             console.log(result)
             navigate("/login")
