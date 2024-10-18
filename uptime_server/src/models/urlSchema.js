@@ -7,6 +7,10 @@ const urlSchema = new Schema({
         type:String,
         required : true,
     },
+    name : {
+        type : "String",
+        required : true,
+    },
     userId : {
         type:mongoose.Schema.Types.ObjectId,
         ref : 'User',

@@ -5,14 +5,15 @@ import { auth } from "../middleware/authMiddleware.js";
 const router = Router();
 
 router.post('/submit', auth, async (req, res) => {
-  const { url } = req.body; // Destructuring to extract the URL from the body
-  const userId = req.userId; // Accessing userId from the middleware's attachment to the request object
+  const { url , name} = req.body; // Destructuring to extract the URL from the body
+  const userId = req.userId;
+   // Accessing userId from the middleware's attachment to the request object
 
   try {
     let urlEntry = await Url.findOne({ url, userId });
-    
+  
     if (!urlEntry) {
-      urlEntry = new Url({ url, userId });
+      urlEntry = new Url({ url, userId , name });
       await urlEntry.save();
       res.status(201).json({ msg: "URL submitted and monitoring started" });
     } else {
