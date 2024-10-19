@@ -11,6 +11,10 @@ const urlSchema = new Schema({
         type : "String",
         required : true,
     },
+    role : {
+        type : "String",
+        required : true,
+    },
     userId : {
         type:mongoose.Schema.Types.ObjectId,
         ref : 'User',

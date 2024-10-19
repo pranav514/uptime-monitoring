@@ -5,7 +5,7 @@ import { auth } from "../middleware/authMiddleware.js";
 const router = Router();
 
 router.post('/submit', auth, async (req, res) => {
-  const { url , name} = req.body; // Destructuring to extract the URL from the body
+  const { url , name, role} = req.body; // Destructuring to extract the URL from the body
   const userId = req.userId;
    // Accessing userId from the middleware's attachment to the request object
 
@@ -13,7 +13,7 @@ router.post('/submit', auth, async (req, res) => {
     let urlEntry = await Url.findOne({ url, userId });
   
     if (!urlEntry) {
-      urlEntry = new Url({ url, userId , name });
+      urlEntry = new Url({ url, userId , name,role });
       await urlEntry.save();
       res.status(201).json({ msg: "URL submitted and monitoring started" });
     } else {
