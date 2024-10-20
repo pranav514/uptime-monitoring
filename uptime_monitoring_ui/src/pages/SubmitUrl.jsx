@@ -28,7 +28,7 @@ function SubmitUrl() {
         onSubmit={handleSubmit} 
         className="max-w-md w-full p-8 bg-gray-900 rounded-lg shadow-lg transform transition-all duration-500 hover:shadow-2xl hover:scale-105"
       >
-        <h3 className="text-3xl font-extrabold text-yellow-400 text-center mb-8">Submit URL</h3>
+        <h3 className="text-3xl font-extrabold text-cyan-400 text-center mb-8">Submit URL</h3>
         
         <div className="mb-6">
           <label className="text-gray-300 text-sm mb-1 block">URL</label>
@@ -37,20 +37,20 @@ function SubmitUrl() {
             value={url} 
             onChange={(e) => setUrl(e.target.value)} 
             required 
-            className="w-full bg-transparent text-base text-white border border-gray-700 focus:border-yellow-400 px-4 py-3 rounded-md outline-none transition-all duration-300"
+            className="w-full bg-transparent text-base text-white border border-gray-700 focus:border-cyan-400 px-4 py-3 rounded-md outline-none transition-all duration-300"
             placeholder="https://example.com"
           />
         </div>
         
         <button 
           type="submit" 
-          className="w-full py-3 px-6 text-base font-semibold text-gray-900 bg-yellow-400 rounded-md shadow-md hover:bg-yellow-500 focus:outline-none transition-all duration-300 transform hover:-translate-y-1"
+          className="w-full py-3 px-6 text-base font-semibold text-gray-900 bg-cyan-400 rounded-md shadow-md hover:bg-cyan-500 focus:outline-none transition-all duration-300 transform hover:-translate-y-1"
         >
           Submit
         </button>
         
         {message && (
-          <p className="text-yellow-400 text-center mt-6 animate-bounce">{message}</p>
+          <p className="text-cyan-400 text-center mt-6 animate-bounce">{message}</p>
         )}
       </form>
     </div>
